@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToMoon Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚀 ToMoon Dashboard</h1>
+  </header>
+
+  <main>
+    <section id="dashboard">
+      <div class="card">
+        <h2>Your Balance</h2>
+        <p id="balance">500 TMT</p>
+        <p class="note">+50 daily reward</p>
+      </div>
+
+      <div class="card">
+        <h2>Your Wallet</h2>
+        <input type="text" id="walletAddress" placeholder="Enter BNB wallet" />
+        <button onclick="saveWallet()">Save Wallet</button>
+      </div>
+
+      <button class="btn" onclick="goToReferral()">Refer Friends</button>
+    </section>
+
+    <section id="referral" class="hidden">
+      <h2>Your Referral Link</h2>
+      <p id="referralLink">https://t.me/ToMoonBot?start=12345</p>
+      <button onclick="copyReferral()">Copy Link</button>
+
+      <h3>Referral Stats</h3>
+      <p id="referralCount">0 referrals</p>
+      <p id="referralEarnings">0 TMT earned</p>
+
+      <button class="btn" onclick="goBack()">⬅ Back to Dashboard</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Follow us on X: <a href="https://twitter.com/mrxyz6523" target="_blank">@mrxyz6523</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
