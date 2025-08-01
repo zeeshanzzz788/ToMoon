@@ -1,31 +1,25 @@
+let balance = 500;
+
 function saveWallet() {
-  const wallet = document.getElementById("walletAddress").value;
-  if (wallet) {
-    localStorage.setItem("wallet", wallet);
-    alert("Wallet saved!");
+  const wallet = document.getElementById('wallet').value;
+  if(wallet) {
+    localStorage.setItem('bnbWallet', wallet);
+    alert('Wallet Saved Successfully!');
   } else {
-    alert("Please enter a wallet address");
+    alert('Please enter a valid wallet address!');
   }
 }
 
-function goToReferral() {
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("referral").classList.remove("hidden");
-}
-
-function goBack() {
-  document.getElementById("referral").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
+function generateReferral() {
+  const refCode = Math.random().toString(36).substring(2, 8);
+  const referralLink = window.location.origin + "?ref=" + refCode;
+  document.getElementById('refLink').value = referralLink;
 }
 
 function copyReferral() {
-  const link = document.getElementById("referralLink").innerText;
-  navigator.clipboard.writeText(link);
+  const copyText = document.getElementById('refLink');
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+  document.execCommand("copy");
   alert("Referral link copied!");
 }
-
-// Load wallet from local storage on page load
-window.onload = function () {
-  const wallet = localStorage.getItem("wallet");
-  if (wallet) document.getElementById("walletAddress").value = wallet;
-};
